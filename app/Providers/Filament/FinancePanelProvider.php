@@ -37,8 +37,8 @@ class FinancePanelProvider extends PanelProvider
             ])
             // ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\Filament\Widgets')
             ->widgets([
-                \App\Filament\Widgets\TotalIncome::class,
-                \App\Filament\Widgets\TotalExpense::class,
+                \App\Filament\Widgets\Totals::class,
+                \App\Filament\Widgets\Bills::class,
             ])
             ->middleware([
                 EncryptCookies::class,

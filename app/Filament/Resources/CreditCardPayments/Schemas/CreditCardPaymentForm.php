@@ -1,34 +1,36 @@
 <?php
 
-namespace App\Filament\Resources\Expenses\Schemas;
+namespace App\Filament\Resources\CreditCardPayments\Schemas;
 
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Schema;
 
-class ExpenseForm
+class CreditCardPaymentForm
 {
     public static function configure(Schema $schema): Schema
     {
         return $schema
             ->components([
-                TextInput::make('name')
-                    ->required(),
+                Select::make('credit_card_id')
+                    ->required()
+                    ->relationship('creditCard', 'name'),
                 TextInput::make('amount')
                     ->required()
                     ->numeric(),
+                DatePicker::make('payment_date')
+                    ->required(),
+                TextInput::make('name')
+                    ->required(),
                 Select::make('category_id')
                     ->required()
                     ->relationship('category', 'name'),
-                Select::make('subcategory_id')
-                    ->relationship('subcategory', 'name'),
+                Select::make('sub_category_id')
+                    ->relationship('subCategory', 'name'),
                 TextInput::make('vendor'),
-                TextInput::make('description'),
-                Select::make('currency_id')
-                    ->required()
-                    ->relationship('currency', 'name'),
-                DatePicker::make('date')
+                Toggle::make('is_paid')
                     ->required(),
             ]);
     }

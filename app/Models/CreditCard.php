@@ -4,23 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Income extends Model
+class CreditCard extends Model
 {
     protected $fillable = [
-        'reason',
-        'amount',
-        'category',
-        'date',
+        'name',
         'currency_id',
+        'expiry_date',
     ];
 
     public function currency()
     {
         return $this->belongsTo(Currency::class);
     }
-
-    public function category()
-    {
-        return $this->belongsTo(Category::class);
-    }
-}
+}   

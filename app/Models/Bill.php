@@ -4,14 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Income extends Model
+class Bill extends Model
 {
     protected $fillable = [
-        'reason',
+        'bill',
         'amount',
-        'category',
-        'date',
+        'category_id',
         'currency_id',
+        'is_fixed_amount',
+        'date',
     ];
 
     public function currency()

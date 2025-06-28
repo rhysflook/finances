@@ -1,35 +1,30 @@
 <?php
 
-namespace App\Filament\Resources\Expenses\Schemas;
+namespace App\Filament\Resources\Bills\Schemas;
 
-use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Schema;
 
-class ExpenseForm
+class BillForm
 {
     public static function configure(Schema $schema): Schema
     {
         return $schema
             ->components([
-                TextInput::make('name')
+                TextInput::make('bill')
                     ->required(),
                 TextInput::make('amount')
-                    ->required()
                     ->numeric(),
+                Toggle::make('is_fixed_amount')
+                    ->required(),
                 Select::make('category_id')
                     ->required()
                     ->relationship('category', 'name'),
-                Select::make('subcategory_id')
-                    ->relationship('subcategory', 'name'),
-                TextInput::make('vendor'),
-                TextInput::make('description'),
                 Select::make('currency_id')
                     ->required()
                     ->relationship('currency', 'name'),
-                DatePicker::make('date')
-                    ->required(),
             ]);
     }
 }

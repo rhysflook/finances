@@ -4,22 +4,22 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Expense extends Model
+class CreditCardPayment extends Model
 {
     protected $fillable = [
-        'name',
+        'credit_card_id',
         'amount',
-        'category',
-        'subcategory',
+        'payment_date',
+        'name',
+        'category_id',
+        'sub_category_id',
         'vendor',
-        'description',
-        'currency_id',
-        'date',
+        'is_paid'
     ];
 
-    public function currency()
+    public function creditCard()
     {
-        return $this->belongsTo(Currency::class);
+        return $this->belongsTo(CreditCard::class);
     }
 
     public function category()
@@ -27,7 +27,7 @@ class Expense extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function subcategory()
+    public function subCategory()
     {
         return $this->belongsTo(SubCategory::class);
     }

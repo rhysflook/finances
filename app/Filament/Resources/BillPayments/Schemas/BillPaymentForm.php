@@ -1,31 +1,26 @@
 <?php
 
-namespace App\Filament\Resources\Incomes\Schemas;
+namespace App\Filament\Resources\BillPayments\Schemas;
 
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 
-class IncomeForm
+class BillPaymentForm
 {
     public static function configure(Schema $schema): Schema
     {
         return $schema
             ->components([
-                TextInput::make('reason')
-                    ->required(),
+                Select::make('bill_id')
+                    ->required()
+                    ->relationship('bill', 'bill'),
                 TextInput::make('amount')
                     ->required()
                     ->numeric(),
-                Select::make('category_id')
-                    ->required()
-                    ->relationship('category', 'name'),
                 DatePicker::make('date')
                     ->required(),
-                Select::make('currency_id')
-                    ->required()
-                    ->relationship('currency', 'name'),
             ]);
     }
 }
