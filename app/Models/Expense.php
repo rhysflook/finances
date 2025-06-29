@@ -9,8 +9,8 @@ class Expense extends Model
     protected $fillable = [
         'name',
         'amount',
-        'category',
-        'subcategory',
+        'category_id',
+        'subcategory_id',
         'vendor',
         'description',
         'currency_id',
