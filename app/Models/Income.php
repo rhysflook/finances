@@ -9,7 +9,7 @@ class Income extends Model
     protected $fillable = [
         'reason',
         'amount',
-        'category',
+        'category_id',
         'date',
         'currency_id',
     ];
