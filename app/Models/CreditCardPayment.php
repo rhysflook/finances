@@ -12,7 +12,7 @@ class CreditCardPayment extends Model
         'payment_date',
         'name',
         'category_id',
-        'sub_category_id',
+        // 'sub_category_id',
         'vendor',
         'is_paid'
     ];
@@ -27,8 +27,8 @@ class CreditCardPayment extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function subCategory()
-    {
-        return $this->belongsTo(SubCategory::class);
-    }
+    // public function subCategory()
+    // {
+    //     return $this->belongsTo(SubCategory::class);
+    // }
 }

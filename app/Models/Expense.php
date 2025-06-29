@@ -10,7 +10,7 @@ class Expense extends Model
         'name',
         'amount',
         'category_id',
-        'subcategory_id',
+        'sub_category_id',
         'vendor',
         'description',
         'currency_id',
