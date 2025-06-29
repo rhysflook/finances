@@ -21,8 +21,8 @@ class ExpenseForm
                 Select::make('category_id')
                     ->required()
                     ->relationship('category', 'name'),
-                Select::make('sub_category_id')
-                    ->relationship('subCategory', 'name'),
+                // Select::make('sub_category_id')
+                //     ->relationship('subCategory', 'name'),
                 TextInput::make('vendor'),
                 TextInput::make('description'),
                 Select::make('currency_id')

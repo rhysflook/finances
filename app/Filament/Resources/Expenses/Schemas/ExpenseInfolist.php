@@ -15,7 +15,7 @@ class ExpenseInfolist
                 TextEntry::make('amount')
                     ->numeric(),
                 TextEntry::make('category'),
-                TextEntry::make('subcategory'),
+                // TextEntry::make('subcategory'),
                 TextEntry::make('vendor'),
                 TextEntry::make('description'),
                 TextEntry::make('currency_id')

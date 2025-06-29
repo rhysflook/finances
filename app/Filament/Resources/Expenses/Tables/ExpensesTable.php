@@ -22,8 +22,8 @@ class ExpensesTable
                     ->sortable(),
                 TextColumn::make('category')
                     ->searchable(),
-                TextColumn::make('subcategory')
-                    ->searchable(),
+                // TextColumn::make('subcategory')
+                //     ->searchable(),
                 TextColumn::make('vendor')
                     ->searchable(),
                 TextColumn::make('description')
