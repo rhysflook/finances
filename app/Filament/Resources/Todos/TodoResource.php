@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Todos;
 
+use App\Filament\Resources\Todos\RelationManagers\TodoStepsRelationManager;
 use App\Filament\Resources\Todos\Pages\CreateTodo;
 use App\Filament\Resources\Todos\Pages\EditTodo;
 use App\Filament\Resources\Todos\Pages\ListTodos;
@@ -33,7 +34,7 @@ class TodoResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            TodoStepsRelationManager::class,
         ];
     }
 
