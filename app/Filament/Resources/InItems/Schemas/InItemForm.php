@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\InItems\Schemas;
 
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Schemas\Schema;
@@ -17,6 +18,10 @@ class InItemForm
                 Textarea::make('description')
                     ->required()
                     ->columnSpanFull(),
+                Select::make('project_id')
+                    ->label('Project')
+                    ->relationship('project', 'name')
+                    ->required(),
             ]);
     }
 }

@@ -8,6 +8,7 @@ use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ToggleColumn;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 
 class TodosTable
@@ -28,9 +29,15 @@ class TodosTable
                     ->label('Is Complete')
                     ->sortable()
                     ->searchable(),
+                TextColumn::make('project.name')
+                    ->label('Project')
+                    ->sortable()
+                    ->searchable(),
             ])
             ->filters([
-                //
+                SelectFilter::make('project_id')
+                    ->label('Project')
+                    ->relationship('project', 'name'),
             ])
             ->recordActions([
                 EditAction::make(),

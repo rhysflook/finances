@@ -8,6 +8,7 @@ use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 
 class ScheduledItemsTable
@@ -34,9 +35,15 @@ class ScheduledItemsTable
                 TextColumn::make('date')
                     ->date()
                     ->sortable(),
+                TextColumn::make('project.name')
+                    ->label('Project')
+                    ->sortable()
+                    ->searchable(),
             ])
             ->filters([
-                //
+                SelectFilter::make('project_id')
+                    ->label('Project')
+                    ->relationship('project', 'name'),
             ])
             ->recordActions([
                 ViewAction::make(),

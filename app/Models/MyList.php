@@ -11,10 +11,16 @@ class MyList extends Model
     protected $fillable = [
         'name',
         'description',
+        'project_id'
     ];
 
     public function items()
     {
         return $this->hasMany(MyListItem::class, 'my_list_id');
+    }
+
+    public function project()
+    {
+        return $this->belongsTo(Project::class);
     }
 }

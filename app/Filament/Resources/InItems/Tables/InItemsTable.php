@@ -7,6 +7,7 @@ use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 
 class InItemsTable
@@ -25,9 +26,14 @@ class InItemsTable
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
+                TextColumn::make('project.name')
+                    ->label('Project')
+                    ->sortable(),
             ])
             ->filters([
-                //
+                SelectFilter::make('project_id')
+                    ->label('Project')
+                    ->relationship('project', 'name'),
             ])
             ->recordActions([
                 ViewAction::make(),

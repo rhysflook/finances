@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Todos\Schemas;
 
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
@@ -22,6 +23,10 @@ class TodoForm
                     ->required(),
                 Toggle::make('is_complete')
                     ->label('Is Complete')
+                    ->required(),
+                Select::make('project_id')
+                    ->label('Project')
+                    ->relationship('project', 'name')
                     ->required(),
             ]);
     }

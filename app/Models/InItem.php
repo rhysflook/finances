@@ -6,5 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class InItem extends Model
 {
-    protected $fillable = ['name', 'description'];
+    protected $fillable = ['name', 'description', 'project_id'];
+
+    public function project()
+    {
+        return $this->belongsTo(Project::class);
+    }
 }
