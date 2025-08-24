@@ -38,6 +38,11 @@ class IncubationItemsTable
                 SelectFilter::make('project_id')
                     ->label('Project')
                     ->relationship('project', 'name'),
+                SelectFilter::make('tags')
+                    ->label('Tags')
+                    ->relationship('tags', 'name')
+                    ->multiple()
+                    ->preload()
             ])
             ->recordActions([
                 ViewAction::make(),

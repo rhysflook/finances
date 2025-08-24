@@ -30,6 +30,11 @@ class ScheduledItemForm
                     ->label('Project')
                     ->relationship('project', 'name')
                     ->required(),
+                Select::make('tags')
+                    ->label('Tags')
+                    ->relationship('tags', 'name')
+                    ->multiple()
+                    ->preload()
             ]);
     }
 }

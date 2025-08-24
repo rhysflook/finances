@@ -1,16 +1,14 @@
 <?php
 
-namespace App\Filament\Resources\MyLists\Tables;
+namespace App\Filament\Resources\Tags\Tables;
 
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
-use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 
-class MyListsTable
+class TagsTable
 {
     public static function configure(Table $table): Table
     {
@@ -26,23 +24,11 @@ class MyListsTable
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                TextColumn::make('project_id')
-                    ->label('Project')
-                    ->sortable()
-                    ->searchable(),
             ])
             ->filters([
-                SelectFilter::make('project_id')
-                    ->label('Project')
-                    ->relationship('project', 'name'),
-                SelectFilter::make('tags')
-                    ->label('Tags')
-                    ->relationship('tags', 'name')
-                    ->multiple()
-                    ->preload()
+                //
             ])
             ->recordActions([
-                ViewAction::make(),
                 EditAction::make(),
             ])
             ->toolbarActions([
